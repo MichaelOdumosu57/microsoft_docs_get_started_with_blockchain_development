@@ -480,11 +480,39 @@ npx truffle compile
 npx truffle migrate --reset
 ```
 
+
 * note - a migrateion file must start in consecutive number order
+
+
 ## Exercise - Deploy to the Ropsten test network
+* install and setup MetaMask
+* connect to Ropsten test network
+* your acct address is app I put mine in the ignore folder 
+* go [here](https://faucet.egorfine.com/) and use the address to request for Ether
+    * it takes 30 mins to arrive
+### Install HDWallet-Provider and fs
+* Next you'll need HDWallet-Provider. This wallet-enabled Web3 provider creates your secret mnemonic and connection network address. You'll also need fs to read from your file system.
+```shell
+npm init;
+npm install -s fs @truffle/hdwallet-provider;
+```
 
+### Set up Infura and link the endpoints to the Ropsten test network
+* Set up an account and confirm your email address.
+* Select Ethereum > Create new project. Name the project TodoList.
+* Under Network Endpoints there is a dropdown where Mainnet is change to Ropsten
 
+### Connect to Ropsten
+__FILE truffle_config.js__
+* uncomment these lines
+```js
+const HDWalletProvider = require('@truffle/hdwallet-provider');
+ const infuraKey = "fj4jll3k.....";
 
+ const fs = require('fs');
+ const mnemonic = fs.readFileSync(".secret").toString().trim();
+```
+* the infuraKey is in your acct its in the ignore forlder for me
 
 
 
