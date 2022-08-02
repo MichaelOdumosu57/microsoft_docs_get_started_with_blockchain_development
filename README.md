@@ -316,6 +316,47 @@ __Distribution__: The output of the contract is validated and verified by nodes 
 ## Frameworks
 * Open Zeppelin, Truffle Suite, Truffle for vscode extension
 
+## Exercise - Install Truffle
+* __ganache__ - a safe etherium virtual network for testing
+
+* 10 generated accounts, and each receives 100 test ether to use. Each account also has a corresponding private key. Every account also has a mnemonic. A mnemonic is a unique 12-word phrase that provides access to the wallet and allows transactions to be made from the account.
+
+## Exercise - Install the Truffle for VS Code extension
+* The project includes boilerplate for Solidity code. Notice the following directories:
+
+* contracts: Contains the HelloBlockchain.sol contract
+* migrations: Contains a migration for the HelloBlockchain contract that's written in JavaScript
+* test: Contains a test for the HelloBlockchain contract that's written in JavaScript
+You also see some configuration files:
+
+* package.json: Defines project details and dependencies
+* truffle-config.json: Defines dependencies and configuration for Truffle
+
+### Compile the contracts
+* Right click and compile the contracts
+![1659456161937](image/README/1659456161937.png)
+* deploy step is important
+* The address of the contract.
+* The time stamp of the block that the contract creation transaction was part of.
+* The address of the account that deployed the contract.
+* The account's balance (in ether) after the transaction. The balance is 100 ETH (the starting default value) minus the total cost.
+* The amount of gas used and the gas price. Gas refers to the fee required to conduct a transaction or to execute a contract on the Ethereum blockchain platform. You can think of it like the gas you need for your car. Total cost = gas price * gas use.
+* Gas prices are shown in gwei. One gwei is worth 0.000000001 ETH.
+
+
+* in order to deploy a contract you need a migrations/[NAME of contract].js file
+
+* javascript is used to test things
+* instance = await Contract.deployed(); is your instance of the smart contract and everything is asynchronous 
+
+* however there is no speeding of time so tests are slow
+* to test
+
+```ps1
+npx truffle test
+```
+
+
 
 # Questions
 * does the transaction trigger the smart contract to make updates
