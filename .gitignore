@@ -133,3 +133,4 @@ dist
 # dev addtions
 ignore
 truffle_framework/toolist/*
+truffle_framework/toolist

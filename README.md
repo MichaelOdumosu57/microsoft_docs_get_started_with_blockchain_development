@@ -444,8 +444,8 @@ __PoA__: Block validators verify their identity on a network to decide which tra
 * [Nethermind](https://nethermind.io/)
 
 ### APIs
-* [Infura](https://infura.io/)
-* [MetaMask](https://metamask.io/)
+* [Infura](https://infura.io/) * provides API allows you to connect your solution to different API networks.
+* [MetaMask](https://metamask.io/) * is a browser extension that allows you to interact with the Ethereum blockchain your wallet is also there. 
 
 
 ## Learn about private Ethereum networks
@@ -512,12 +512,31 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
  const fs = require('fs');
  const mnemonic = fs.readFileSync(".secret").toString().trim();
 ```
-* the infuraKey is in your acct its in the ignore forlder for me
+* the infuraKey is in your  it shoud be public api key acct its in the ignore forlder for me
+__FILE truffle_config.js__
+* UNCOMMENT THIS LINE
+```js
+ropsten: {
+   provider: () => new HDWalletProvider(mnemonic, `https://ropsten.infura.io/v3/${infuraKey}`),
+   network_id: 3,       // Ropsten's id
+   gas: 5500000,        // Ropsten has a lower block limit than mainnet
+   confirmations: 2,    // # of confs to wait between deployments. (default: 0)
+   timeoutBlocks: 200,  // # of blocks before a deployment times out (minimum/default: 50)
+   skipDryRun: true     // Skip dry run before migrations? (default: false for public nets )
+ },
+```
 
 
 
 
+### Deploy to Ropsten
+```shell
+npx truffle migrate --netwrok ropsten
+```
+* this will take a while
+* if you get an errror PollingBlockTracker - encountered an error while attempting to update latest block:, it went through 
 
+* type your contract address [here](https://ropsten.etherscan.io/) to see information about your smart contract  
 
 
 
@@ -561,3 +580,4 @@ const HDWalletProvider = require('@truffle/hdwallet-provider');
 # Questions
 * does the transaction trigger the smart contract to make updates
 * what is the difference between tokens and coins
+* does an evm get full of smart contracts where the evm cannot accept the upload of any more contracts
