@@ -314,7 +314,7 @@ __Immutability__: Smart contract execution creates logs that can't be changed.
 __Distribution__: The output of the contract is validated and verified by nodes on the network. Contract states can be publicly visible. In some cases, even "private" variables are visible.
 
 ## Frameworks
-* Open Zeppelin, Truffle Suite, Truffle for vscode extension
+* Open Zeppelin(a platform), Truffle Suite, Truffle for vscode extension
 
 ## Exercise - Install Truffle
 * __ganache__ - a safe etherium virtual network for testing
@@ -356,7 +356,180 @@ You also see some configuration files:
 npx truffle test
 ```
 
+#  Create tokens using OpenZeppelin 
+* digital asset Bitcoin, Ether, or another cryptocurrency is money
+* token is a digital asset that can be time,services, property, or tradeable goods
+
+## What is a token
+* token is accessible by crypto wallet
+* Tokens help operate decentralized apps (dapps) and simplify the cryptoeconomics of different blockchain ecosystem
+* tokens have value in certain ecosytem
+
+## Two categories of blockchain tokens
+* __Fungible__. Fungible tokens are:
+    Equivalent
+    Exchangeable
+    Valued by how many you have
+* __Non-fungible__. Non-fungible tokens are:
+    Unique
+    Distinct
+    Valued by which ones you have
+* tokens can be smart contracts, so we need standards
+
+## Learn about contract standards
+* these are __Ethereum Improvement Proposals (EIPs)__
+* consist of    __Ethereum Request for Comments (ERCs).__
+
+### ERC20
+* used for smart contracts on the Ethereum blockchain to implement tokens
+
+### ERC721
+* top solution for non-fungible tokens (NFTs).
+* they are for physical assets
+
+### ERC777
+* future of ERC20
+
+### ERC1155
+* manages multiple token types and saves gas
+
+## Learn about OpenZeppelin
+
+### Contracts
+* has a library of smart contracts that have been tested,audited community reviewed
+
+### Exercise - Set up a new project and integrate OpenZeppelin
+```shell
+mkdir Token20;
+cd Token20/;
+npx truffle init;
+ls;
+contracts               migrations              test                    truffle-config.js
+npm install -s @openzeppelin/contracts;
+ ls node_modules/@openzeppelin/contracts
+#  this is where alll of open zepellin contracts are
+```
+
+### Exercise - Write an ERC20 token contract
+* ton run the build you must change to relative path, and since solc is not smart emough to follow relative paths you must init the Token20 folder, your OpenZeppelin project
+
+[Example](truffle_framework\Token20\contracts\ERC20MinerReward.sol)
+
+
+# Connect and deploy to Ethereum networks
+Identify the public and private networks available in Ethereum.
+Explain the requirements to prepare a solution for the mainnet.
+Know how to use MetaMask with Infura to connect a blockchain solution to networks.
+
+
+## Learn about public Ethereum networks
+*  Ethereum currently has four test networks, called testnets. It has one production network, called the mainnet.
+* Each transaction has real costs. These costs require ether (ETH) cryptocurrency.
+* see all activity on the mainnet on [Etherscan](https://etherscan.io/)
+
+### Ethereum testnets
+ stuff gets deploy to mainnet via 
+__PoW__: A mining rig solves a cryptographic hashing problem to mine a new block and decide which transactions are part of that block.
+__PoA__: Block validators verify their identity on a network to decide which transactions become part of the next block in the chain.
+
+### Testnets
+* __Ropsten__ is a PoW consensus protocol. It's closest to the mainnet in functionality. 
+* __Kovan__ is a PoA testnet named after a subway station in Singapore. Its ether must be requested from the faucet and is controlled by trusted parties. Because of this property, Kovan is immune to spam attack
+* __Rinkeby__ is a PoA testnet started by the Ethereum team in April 2017. 
+* __Goerli__ wide avaialbleity
+
+### Clients and APIs for deploying to testnets and the mainnet
+* [Geth client](https://geth.ethereum.org/)
+* [Open Ethereum](https://openethereum.github.io/)
+* [Nethermind](https://nethermind.io/)
+
+### APIs
+* [Infura](https://infura.io/)
+* [MetaMask](https://metamask.io/)
+
+
+## Learn about private Ethereum networks
+* private network, nodes are not connected, this is a dev ( local) network. 
+    * use Gananche and Hardhat for this
+* Consortium networks are permissioned. They require an invitation to participate. 
+* [Hyperledger Besu](https://besu.hyperledger.org/en/stable/) - written in java
+* [R3 Corda](https://www.r3.com/corda-platform/)
+    * there is corda vscode extension
+
+## Prepare for deployment to the mainnet
+* must fully test and audit your code
+* working in mainmet cost real money
+* can lose your money 
+* Immediately after you deploy your contract to the mainnet, [verify the smart contract source code](https://docs.openzeppelin.com/learn/preparing-for-mainnet#verify-source-code?azure-portal=true) by submitting the Solidity code to a third party
+* store private keys on hardware wallets and cold stroange (computers never connected to internet)
+
+## Exercise - Develop a to-do list and deploy to development
+* make a project
+* add a contract
+* make your deploy file
+* start up ganache cli
+
+
+__FILE__ truffle_config.js
+* uncommment the networks.development block
+![1659461330897](image/README/1659461330897.png)
+
+run 
+```shell
+npx truffle compile
+npx truffle migrate --reset
+```
+
+* note - a migrateion file must start in consecutive number order
+## Exercise - Deploy to the Ropsten test network
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 # Questions
 * does the transaction trigger the smart contract to make updates
+* what is the difference between tokens and coins
